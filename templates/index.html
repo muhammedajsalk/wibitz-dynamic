@@ -255,13 +255,14 @@
                 <div class="right">
                     <div class="content">
                         <h4>Help us get to know you.</h4>
-                        <form action="">
-                            <div class="one_by_two"><input type="email" placeholder="Work Email" /></div>
-                            <div class="one_by_two"><input type="text" placeholder="First Name" /></div>
-                            <div class="one_by_two"><input type="text" placeholder="Last Name" /></div>
-                            <div class="one_by_two"><input type="text" placeholder="Company" /></div>
+                        <form action="{% url 'web:contact' %}" method="post" class="ajax">
+                            {% csrf_token %}
+                            <div class="one_by_two"><input type="email" name="email"  placeholder="Work Email" /></div>
+                            <div class="one_by_two"><input type="text" name="first_name" placeholder="First Name" /></div>
+                            <div class="one_by_two"><input type="text" name="last_name" placeholder="Last Name" /></div>
+                            <div class="one_by_two"><input type="text" name="company" placeholder="Company" /></div>
                             <div class="one_by_two">
-                                <select>
+                                <select name="company_size">
                                     <option value="">Company Size</option>
                                     <option value="1-10">1-10</option>
                                     <option value="11-50">11-50</option>
@@ -270,7 +271,7 @@
                                 </select>
                             </div>
                             <div class="one_by_two">
-                                <select>
+                                <select name="industry">
                                     <option value="">Industry</option>
                                     <option value="Agriculture">Agriculture</option>
                                     <option value="Banking &amp; Finance">Banking &amp; Finance</option>
@@ -278,14 +279,14 @@
                                 </select>
                             </div>
                             <div class="one_by_two">
-                                <select>
+                                <select name="job_role">
                                     <option value="">Job Role</option>
                                     <option value="C-Suite">C-Suite</option>
                                     <option value="VP">VP</option>
                                 </select>
                             </div>
                             <div class="one_by_two">
-                                <select><option value="">Country</option><option value="United States">United States</option>
+                                <select name="country"><option value="">Country</option><option value="United States">United States</option>
                                     <option value="Afghanistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
                                 <option value="Algeria">Algeria</option>
@@ -293,7 +294,7 @@
                             </select>
                             </div>
                             <div class="full checkbox">
-                                <input id="id_checkbox" type="checkbox" value="Get a Demo" />
+                                <input id="id_checkbox" type="checkbox" name="user_agreement" value="Get a Demo" />
                                 <label for="id_checkbox">Yes, I'd like to receive occasional marketing emails from Wibbitz. I have the right to opt out at any time. <a href="#">View privacy policy.</a></label>
                             </div>
                             <div class="full">
