@@ -16,7 +16,7 @@ def index(request):
     blog = Blog.objects.all()
 
     form = ContactForm()
-    
+
     context={
         "customers" : customer,
         "features" : feature,
@@ -55,30 +55,11 @@ def subscribe(request):
 
 
 def contact(request):
-    email = request.POST.get("email")
-    first_name = request.POST.get("first_name")
-    last_name = request.POST.get("last_name")
-    company = request.POST.get("company")
-    company_size = request.POST.get("company_size")
-    industry = request.POST.get("industry")
-    job_role = request.POST.get("job_role")
-    country = request.POST.get("country")
-    user_agreement = request.POST.get("user_agreement")
-    
-    if not Contact.objects.filter(email=email).exists():
-        
-        Subscribe.objects.create(
-          email = email,
-          first_name = first_name,
-          last_name = last_name,
-          company = company,
-          company_size = company_size,
-          industry = industry,
-          job_role = job_role,
-          country = country,
-          user_agreement = user_agreement
-        )
+    form = ContactForm(request.POST)
 
+    if form.is_valid():
+        form.save()
+        
         response_data={
             "status" : "success",
             "title" : "Successfully Registered",
@@ -92,3 +73,4 @@ def contact(request):
         }
 
     return HttpResponse(json.dumps(response_data),content_type="application/javascript")
+
