@@ -257,43 +257,17 @@
                         <h4>Help us get to know you.</h4>
                         <form action="{% url 'web:contact' %}" method="post" class="ajax">
                             {% csrf_token %}
-                            <div class="one_by_two"><input type="email" name="email"  placeholder="Work Email" required /></div>
-                            <div class="one_by_two"><input type="text" name="first_name" placeholder="First Name" required/></div>
-                            <div class="one_by_two"><input type="text" name="last_name" placeholder="Last Name" required/></div>
-                            <div class="one_by_two"><input type="text" name="company" placeholder="Company" required /></div>
-                            <div class="one_by_two">
-                                <select name="company_size" required>
-                                    <option value="">Company Size</option>
-                                    <option value="1">1-10</option>
-                                    <option value="2">11-50</option>
-                                    <option value="3">51-200</option>
-                                    <option value="4">201-500</option>
-                                </select>
-                            </div>
-                            <div class="one_by_two">
-                                <select name="industry" required>
-                                    <option value="">Industry</option>
-                                    <option value="1">Agriculture</option>
-                                    <option value="2">Banking &amp; Finance</option>
-                                    <option value="3">Business Services &amp; Software</option>
-                                </select>
-                            </div>
-                            <div class="one_by_two">
-                                <select name="job_role" required>
-                                    <option value="">Job Role</option>
-                                    <option value="1">C-Suite</option>
-                                    <option value="2">VP</option>
-                                </select>
-                            </div>
-                            <div class="one_by_two">
-                                <select name="country" required><option value="">Country</option>
-                                    <option value="us">United States</option>
-                                <option value="albania">Albania</option>
-                            </select>
-                            </div>
+                            <div class="one_by_two">{{form.email}}</div>
+                            <div class="one_by_two">{{form.first_name}}</div>
+                            <div class="one_by_two">{{form.last_name}}</div>
+                            <div class="one_by_two">{{form.company}}</div>
+                            <div class="one_by_two">{{form.company_size}}</div>
+                            <div class="one_by_two">{{form.industry}}</div>
+                            <div class="one_by_two">{{form.job_role}}</div>
+                            <div class="one_by_two">{{form.country}}</div>
                             <div class="full checkbox">
-                                <input id="id_checkbox" type="checkbox" name="user_agreement" value="True" required/>
-                                <label for="id_checkbox">Yes, I'd like to receive occasional marketing emails from Wibbitz. I have the right to opt out at any time. <a href="#">View privacy policy.</a></label>
+                                {{form.user_agreement}}
+                                <label for="{{form.user_agreement.id_for_label}}">Yes, I'd like to receive occasional marketing emails from Wibbitz. I have the right to opt out at any time. <a href="#">View privacy policy.</a></label>
                             </div>
                             <div class="full">
                                 <input class="submit" type="submit" value="Get a Demo" />

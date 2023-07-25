@@ -3,6 +3,7 @@ import json
 from django.shortcuts import render
 from web.models import Customer,Subscribe,Feature,Videoblog,Testimonial,Marketing,Product,Blog,Contact
 from django.http import HttpResponse
+from web.forms import ContactForm
 
 
 def index(request):
@@ -13,6 +14,9 @@ def index(request):
     marketing = Marketing.objects.all()
     product = Product.objects.all()
     blog = Blog.objects.all()
+
+    form = ContactForm()
+    
     context={
         "customers" : customer,
         "features" : feature,
@@ -20,7 +24,8 @@ def index(request):
         "testimonials" : testimonial,
         "marketings" : marketing,
         "products" : product,
-        "blogs" : blog
+        "blogs" : blog,
+        "form" : form
     }
     return render(request,"index.html",context=context)
 
