@@ -304,15 +304,11 @@
                     <div class="item">
                         <h5>Solutions</h5>
                         <ul>
+                            {% for product in products%}
                             <li>
-                                <a href="#"><img src="{% static 'images/Studio-icon.svg' %}" alt="" /><span>Studio</span></a>
+                                <a href="#"><img src="{{product.logo.url}}" alt="" /><span>{{product.title}}</span></a>
                             </li>
-                            <li>
-                                <a href="#"><img src="{% static 'images/Lightbox-icon.svg' %}" alt="" /><span>Lightbox</span></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="{% static 'images/Wavi-icon.svg' %}" alt="" /><span>Wavi</span></a>
-                            </li>
+                           {% endfor %}
                         </ul>
                     </div>
                     <div class="item">
