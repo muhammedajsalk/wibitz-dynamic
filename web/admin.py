@@ -1,5 +1,5 @@
 from django.contrib import admin
-from web.models import Subscribe,Customer,Feature,Videoblog,Testimonial,Marketing,Product,Blog
+from web.models import Subscribe,Customer,Feature,Videoblog,Testimonial,Marketing,Product,Blog,Contact
 
 
 
@@ -11,4 +11,5 @@ admin.site.register(Testimonial)
 admin.site.register(Marketing)
 admin.site.register(Product)
 admin.site.register(Blog)
+admin.site.register(Contact)
 

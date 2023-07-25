@@ -1,6 +1,33 @@
 from django.db import models
 
 
+COMPANY_SIZE=(
+    ("1","1-10"),
+    ("2","11-50"),
+    ("3","51-200"),
+    ("4","201-500")
+)
+
+
+INDUSTRY=(
+    ("1","Agriculture"),
+    ("2","Banking & Finance"),
+    ("3","Business Services & Software")
+)
+
+
+JOB_ROLE=(
+    ("1","C-Suite"),
+    ("2","VP")
+)
+
+
+COUNTRY=(
+    ("us","United States"),
+    ("albania","Albania")
+)
+
+
 class Subscribe(models.Model):
     email = models.EmailField()
 
@@ -126,3 +153,22 @@ class Blog(models.Model):
     
     def __str__(self):
         return str(self.title)
+
+
+class Contact(models.Model):
+    email = models.EmailField()
+    first_name = models.CharField(max_length=128)
+    last_name = models.CharField(max_length=128)
+    company = models.CharField(max_length=128)
+    company_size = models.CharField(max_length=128,choices=COMPANY_SIZE)
+    industry = models.CharField(max_length=128,choices=INDUSTRY)
+    job_role = models.CharField(max_length=128,choices=JOB_ROLE)
+    country = models.CharField(max_length=128,choices=COUNTRY)
+    user_agreement = models.BooleanField(default=False)
+
+    class Meta:
+        db_table = "web_contact"
+        ordering = ["-id"]
+    
+    def __str__(self):
+        return str(self.first_name)
