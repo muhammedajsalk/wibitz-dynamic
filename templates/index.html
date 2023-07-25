@@ -245,10 +245,9 @@
                     <hr class="line bottom" />
                     <div class="companies">
                         <ul>
-                            <li><img src="{% static 'images/att_white_L.svg' %}" alt="" /></li>
-                            <li><img src="{% static 'images/bertelsmann_white_L.svg' %}" alt="" /></li>
-                            <li><img src="{% static 'images/bloomberg_white_L.svg' %}" alt="" /></li>
-                            <li><img src="{% static 'images/hubspot_white_L.svg' %}" alt="" /></li>
+                            {% for customer in latest_customers %}
+                            <li><img src="{{customer.white_logo.url}}" alt="" /></li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>

@@ -8,6 +8,7 @@ from web.forms import ContactForm
 
 def index(request):
     customer = Customer.objects.all()
+    latest_customer = Customer.objects.all()[:4]
     feature = Feature.objects.all()
     videoblog= Videoblog.objects.all()
     testimonial= Testimonial.objects.all()
@@ -25,7 +26,8 @@ def index(request):
         "marketings" : marketing,
         "products" : product,
         "blogs" : blog,
-        "form" : form
+        "form" : form,
+        "latest_customers" : latest_customer
     }
     return render(request,"index.html",context=context)
 

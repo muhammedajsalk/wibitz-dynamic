@@ -42,10 +42,11 @@ class Subscribe(models.Model):
 
 class Customer(models.Model):
     image = models.FileField(upload_to="customers/")
+    white_logo = models.FileField(upload_to="customers/",blank=True,null=True)
 
     class Meta:
         db_table = "web_customer"
-        ordering = ["-id"]
+        ordering = ["id"]
     
     def __str__(self):
         return str(self.id)
