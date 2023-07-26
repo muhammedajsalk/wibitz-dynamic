@@ -1,6 +1,6 @@
 import json
 
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from web.models import Customer,Subscribe,Feature,Videoblog,Testimonial,Marketing,Product,Blog,Contact
 from django.http import HttpResponse
 from web.forms import ContactForm
@@ -78,7 +78,7 @@ def contact(request):
 
 
 def product(request,pk):
-    product = Product.objects.get(pk=pk)
+    product = get_object_or_404(Product.objects.filter(pk=pk))
     context={
         "product":product
     }
