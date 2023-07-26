@@ -14,19 +14,17 @@
             <img src="{{product.hero_image.url}}" alt="Hero Image" class="hero" />
         </section>
     </section>
-    <section id="inner-page-brands">
-        <section class="wrapper">
-            <h6>Leading brands trust Wibbitz for video</h6>
-            <ul>
-                <li><a href="#"><img src="{% static 'images/logo-birchbox.svg' %}" alt="logo-birchbox" /></a></li>
-                <li><a href="#"><img src="{% static 'images/logo-birchbox.svg' %}" alt="logo-birchbox" /></a></li>
-                <li><a href="#"><img src="{% static 'images/logo-birchbox.svg' %}" alt="logo-birchbox" /></a></li>
-                <li><a href="#"><img src="{% static 'images/logo-birchbox.svg' %}" alt="logo-birchbox" /></a></li>
-                <li><a href="#"><img src="{% static 'images/logo-birchbox.svg' %}" alt="logo-birchbox" /></a></li>
-                <li><a href="#"><img src="{% static 'images/logo-birchbox.svg' %}" alt="logo-birchbox" /></a></li>
-                <li><a href="#"><img src="{% static 'images/logo-birchbox.svg' %}" alt="logo-birchbox" /></a></li>
-            </ul>
+        <section id="inner-page-brands">
+            <section class="wrapper">
+                {% if customer %}
+                    <h6>Leading brands trust Wibbitz for video</h6>
+                    <ul>
+                        {% for customer in customer %}
+                            <li><a href="#"><img src="{{customer.image.url}}" alt="logo-birchbox" /></a></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </section>
         </section>
-    </section>
 {% endblock %}
        

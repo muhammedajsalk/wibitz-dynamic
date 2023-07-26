@@ -41,6 +41,7 @@ class Subscribe(models.Model):
 
 
 class Customer(models.Model):
+    product = models.ForeignKey("web.Product",on_delete=models.CASCADE)
     image = models.FileField(upload_to="customers/")
     white_logo = models.FileField(upload_to="customers/",blank=True,null=True)
 

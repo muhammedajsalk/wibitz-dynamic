@@ -79,7 +79,11 @@ def contact(request):
 
 def product(request,pk):
     product = get_object_or_404(Product.objects.filter(pk=pk))
+    
+    customer = Customer.objects.filter(product=product)
+
     context={
-        "product":product
+        "product":product,
+        "customer":customer
     }
     return render(request,"product.html",context=context)
