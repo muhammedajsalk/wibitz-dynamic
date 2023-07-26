@@ -118,15 +118,18 @@ class Marketing(models.Model):
 class Product(models.Model):
     logo = models.FileField(upload_to="product/")
     title = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+    background_color = models.CharField(max_length=255)
     description = models.TextField()
     image =  models.ImageField(upload_to="product/")
+    hero_image =  models.ImageField(upload_to="product/hero_images/")
 
     class Meta:
         db_table = "web_product"
         ordering = ["-id"]
     
     def __str__(self):
-        return str(self.title)
+        return str(self.name)
     
 
 class Blog(models.Model):
