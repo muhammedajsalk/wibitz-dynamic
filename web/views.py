@@ -77,6 +77,9 @@ def contact(request):
     return HttpResponse(json.dumps(response_data),content_type="application/javascript")
 
 
-def product(request):
-    context={}
+def product(request,pk):
+    product = Product.objects.get(pk=pk)
+    context={
+        "product":product
+    }
     return render(request,"product.html",context=context)

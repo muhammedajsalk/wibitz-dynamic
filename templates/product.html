@@ -2,16 +2,16 @@
 {% load static %}     
         
 {% block content %}
-    <section id="product">
+    <section id="product" style="background-color: {{product.background_color}};">
         <section class="wrapper">
             <a href="#" class="logo-badge">
-                <img src="{% static 'images/Wavi-icon.svg' %}" alt="" />
-                Wavi
+                <img src="{{product.logo.url}}" alt="" />
+                {{product.name}}
             </a>
-            <h1>Produce video at unprecedented scale with the power of automation</h1>
-            <p>Automatically transform existing text, data, and assets into professional videos with our AI video creator.</p>
+            <h1>{{product.title}}</h1>
+            <p>{{product.description}}</p>
             <a href="#" class="button">Get in Touch</a>
-            <img src="{% static 'images/product-hero-1.png' %}" alt="Hero Image" class="hero" />
+            <img src="{{product.hero_image.url}}" alt="Hero Image" class="hero" />
         </section>
     </section>
     <section id="inner-page-brands">

@@ -137,20 +137,20 @@
                 </section>
             </section>
         </section>
-        <section id="products">
+        <section id="products" >
             <section class="wrapper">
                 <section class="top">
                     <h3>Our three video solutions are built for every type of business</h3>
                 </section>
                 <ul>
                     {% for product in products %}
-                    <li class="one">
+                    <li class="{% cycle 'one' 'two' 'three' %}">
                         <div class="logo">
                             <img src="{{product.logo.url}}" alt="" />
                         </div>
                         <h1>{{product.name}}</h1>
                         <p>{{product.description}}</p>
-                        <a href="{% url 'web:product' %}" class="button">Learn More</a>
+                        <a href="{% url 'web:product' pk=product.pk %}" class="button">Learn More</a>
                         <div class="img_bottom">
                             <img src="{{product.image.url}}" alt="" class="hero" />
                         </div>
