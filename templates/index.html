@@ -150,7 +150,7 @@
                         </div>
                         <h1>{{product.name}}</h1>
                         <p>{{product.description}}</p>
-                        <a href="#" class="button">Learn More</a>
+                        <a href="{% url 'web:product' %}" class="button">Learn More</a>
                         <div class="img_bottom">
                             <img src="{{product.image.url}}" alt="" class="hero" />
                         </div>
